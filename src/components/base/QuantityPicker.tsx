@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -29,38 +29,31 @@ const Wrapper = styled.div`
 
 export interface Props {
   className?: string;
-  initialQty?: number;
+  quantity?: number;
   children?: React.ReactNode;
   onChange?(value: number): void;
 }
 
-const Component: React.FC = ({ className, initialQty = 1, onChange = () => null }: Props) => {
-  const [qty, setQty] = useState(initialQty);
+const Component: React.FC = ({ className, quantity = 1, onChange = () => null }: Props) => {
 
   const classes = ['QuantityPicker']
   if (className) classes.push(className);
 
   function increment() {
-    setQty((value) => {
-      const newValue = value + 1;
-      onChange(newValue);
-      return newValue;
-    })
+    const newValue = quantity + 1;
+    onChange(newValue);
   }
 
   function decrement() {
-    setQty((value) => {
-      const newValue = Math.max(value - 1, 1);
-      onChange(newValue);
-      return newValue;
-    })
+    const newValue = Math.max(quantity - 1, 1);
+    onChange(newValue);
   }
 
   return (
     <Wrapper className={classes.join(' ')}>
       <button onClick={decrement}>-</button>
       <span className="value">
-        {qty}
+        {quantity}
       </span>
       <button onClick={increment}>+</button>
     </Wrapper>

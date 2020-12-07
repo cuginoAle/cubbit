@@ -7,9 +7,13 @@ import { select } from '@storybook/addon-knobs';
 export default {
   title: "/Cart Item",
   component: CartItemComponent,
+  argTypes: {
+    onChange: { action: 'Quantity changed' }
+  }
 };
 
-export const CartItem: Story = () => {
+export const CartItem: Story = (args) => {
+
   const item: ItemProps = {
     item: {
       name: "Cool item",
@@ -20,7 +24,8 @@ export const CartItem: Story = () => {
       picUrl: productPic,
       currency: "€",
     },
-    mode: select('Mode', ['default', 'compact'], 'default')
+    mode: select('Mode', ['default', 'compact'], 'default'),
+    onChange: args.onChange
   }
   return (
     <CartItemComponent {...item} />

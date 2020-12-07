@@ -59,7 +59,8 @@ export type Props = {
     percDiscount: number;
     picUrl: string;
     currency: "€" | "£";
-  }
+  },
+  onChange?(value: number): void;
 }
 
 function calcRoundedPerc(num: number, perc: number) {
@@ -70,15 +71,17 @@ function calcRoundedDiscount(num: number, perc: number) {
   return num - calcRoundedPerc(num, perc);
 }
 
-const Component: React.FC = ({ className, item, mode = 'default' }: Props) => {
+const Component: React.FC = ({ className, item, mode = 'default', onChange = () => null }: Props) => {
   const [qty, setQty] = useState(1);
 
   function changeQty(value: number) {
     setQty(value)
+    onChange(value);
   }
 
   const qtyOptions: QtyProps = {
-    onChange: changeQty
+    onChange: changeQty,
+    quantity: qty
   }
 
   const classes = ['CartItem']

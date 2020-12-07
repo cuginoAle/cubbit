@@ -5,10 +5,13 @@ import { Story } from '@storybook/react/types-6-0';
 export default {
   title: "/Quantity Picker",
   component: QuantityPickerComponent,
+  argTypes: {
+    onChange: { action: 'changed' }
+  }
 };
 
-export const QuantityPicker: Story = () => {
+export const QuantityPicker: Story = (args) => {
   return (
-    <QuantityPickerComponent />
+    <QuantityPickerComponent {...args} />
   );
 };

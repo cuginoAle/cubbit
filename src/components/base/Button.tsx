@@ -9,6 +9,7 @@ interface Props {
   className?: string;
   primary?: boolean;
   children?: React.ReactNode;
+  onClick?(): void;
 }
 
 const Wrapper = styled.button<StyledProps>`
@@ -26,13 +27,13 @@ const Wrapper = styled.button<StyledProps>`
 `;
 
 
-const Button: React.FC = ({ className, primary, children }: Props) => {
+const Button: React.FC = ({ className, primary, children, onClick }: Props) => {
 
   const classes = ['Button']
   if (className) classes.push(className);
 
   return (
-    <Wrapper className={classes.join(' ')} primary={primary}>
+    <Wrapper className={classes.join(' ')} primary={primary} onClick={onClick}>
       {children}
     </Wrapper>
   )
