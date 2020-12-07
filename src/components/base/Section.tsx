@@ -9,7 +9,7 @@ const Wrapper = styled.div<StyledProp>`
   margin-bottom:${({ theme }) => theme.spacer * 3}px;
   .sectionContent{
     background-color: ${({ theme }) => theme.palette.white};
-    border: ${({ showBorder, theme }) => showBorder && `1px solid ${theme.section.borderColor.light}`} ;
+    border: ${({ showBorder, theme }) => showBorder && `1px solid ${theme.palette.grey.lighter}`} ;
     border-radius:  ${({ theme }) => theme.radius}px;
   }
 `;

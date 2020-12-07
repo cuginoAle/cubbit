@@ -3,6 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const palette = {
   primary: "#009EFF",
   white: "#fff",
+  accent: "#EA243C",
   grey: {
     darker: "#161616",
     dark: "#363636",
@@ -77,11 +78,8 @@ export default {
   button: {
     radius: 2,
   },
-  section: {
-    borderColor: {
-      light: palette.grey.lighter,
-      dark: palette.grey.normal,
-    },
+  validation: {
+    error: palette.accent,
   },
 };
 

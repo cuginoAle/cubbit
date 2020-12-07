@@ -19,10 +19,10 @@ const Wrapper = styled.div`
   }
 
   .value{
-    width: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 2em;    
+    border: none;
+    text-align: center;
+
   }
   
 `;
@@ -32,9 +32,10 @@ export interface Props {
   quantity?: number;
   children?: React.ReactNode;
   onChange?(value: number): void;
+  name?: string;
 }
 
-const Component: React.FC = ({ className, quantity = 1, onChange = () => null }: Props) => {
+const Component: React.FC = ({ className, quantity = 1, onChange = () => null, name }: Props) => {
 
   const classes = ['QuantityPicker']
   if (className) classes.push(className);
@@ -49,12 +50,14 @@ const Component: React.FC = ({ className, quantity = 1, onChange = () => null }:
     onChange(newValue);
   }
 
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    onChange(Math.max(parseInt(e.target.value, 10), 1))
+  }
+
   return (
     <Wrapper className={classes.join(' ')}>
       <button onClick={decrement}>-</button>
-      <span className="value">
-        {quantity}
-      </span>
+      <input type='text' className="value" onChange={handleChange} value={quantity} name={name} />
       <button onClick={increment}>+</button>
     </Wrapper>
   )
