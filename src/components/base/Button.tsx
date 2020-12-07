@@ -13,8 +13,8 @@ interface Props {
 
 const Wrapper = styled.button<StyledProps>`
   align-items: center;
-  background-color:${({ primary, theme }) => primary ? theme.palette.blue : theme.palette.white};
-  color: ${({ primary, theme }) => primary ? theme.palette.white : theme.palette.blue};
+  background-color:${({ primary, theme }) => primary ? theme.palette.primary : theme.palette.white};
+  color: ${({ primary, theme }) => primary ? theme.palette.white : theme.palette.primary};
   border: 1px solid ${({ theme }) => theme.palette.primary};
   display: flex;
   font-family: inherit;

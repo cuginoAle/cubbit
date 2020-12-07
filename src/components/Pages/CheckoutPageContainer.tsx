@@ -4,10 +4,20 @@ import BaseLayout, { MainContent, Aside } from 'layouts/BaseLayout';
 import Header from 'components/widgets/Header';
 import WizardStepsContainer from 'components/containers/WizardStepsContainer';
 import { SmallScreenOnly, LargeScreenOnly } from 'helpers/responsive'
+import AsSeenOn from 'components/widgets/AsSeenOn';
+import FundRaising from 'components/widgets/FundRaising';
+import FundedBy from 'components/widgets/FundedBy';
+import BenefitList from 'components/widgets/BenefitList';
 
 const Wrapper = styled.div`
   min-height: 100%;
   height: 1px;
+
+  ${Aside}{
+    >*{
+      margin-bottom:${({ theme }) => theme.spacer * 4}px;
+    }
+  }
 `;
 
 export type Props = {
@@ -38,7 +48,11 @@ const Component: React.FC = ({ className }: Props) => {
           <SmallScreenOnly>
             <WizardStepsContainer />
           </SmallScreenOnly>
-          Some other content
+          <BenefitList />
+          <FundRaising />
+          <AsSeenOn />
+          <FundedBy />
+
         </Aside>
       </BaseLayout>
     </Wrapper>

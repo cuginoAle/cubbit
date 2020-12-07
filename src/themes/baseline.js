@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import "normalize.css";
 
 const CssBaseline = createGlobalStyle`   
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap'); 
   html {
     font-size: 62.5%;
   }
@@ -22,7 +21,7 @@ const CssBaseline = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ul {
+  ul, li {
     list-style: none;
     margin: 0;
     padding: 0;

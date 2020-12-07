@@ -25,7 +25,7 @@ const StyledStep = styled.li<StyledProps>`
       width: 3.6rem;
     }
     path {
-      fill: ${({ active, theme }) => active ? theme.palette.blue : theme.palette.white};
+      fill: ${({ active, theme }) => active ? theme.palette.primary : theme.palette.white};
     }
   }
   .label {

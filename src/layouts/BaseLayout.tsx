@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const Aside = styled.div`
-  padding: 0 ${({ theme }) => theme.spacer}px;
+  padding: 0 ${({ theme }) => theme.spacer * 2}px;
   ${({ theme }) => theme.mediaQuery.large} {        
   }
 `
 
 export const MainContent = styled.div`
   background-color: ${({ theme }) => theme.palette.white};
-  padding: 0 ${({ theme }) => theme.spacer}px;
+  padding: 0 ${({ theme }) => theme.spacer * 2}px;
   ${({ theme }) => theme.mediaQuery.large} {  
   
   }
@@ -30,10 +30,13 @@ const Header = styled.div`
 const MainContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow:1;
+  flex-grow:1;  
 
   ${Aside}{
     order:0;    
+    >*{
+        margin: 0 auto ${({ theme }) => theme.spacer * 4}px;
+      }
   }
   ${MainContent}{
     order:1;
@@ -45,6 +48,10 @@ const MainContentWrapper = styled.div`
     ${Aside}{
       order:1;
       flex-basis: 50%;
+      >*{
+        max-width: 400px;
+        margin: 0 auto ${({ theme }) => theme.spacer * 4}px;
+      }
     }
     ${MainContent}{
       order:0;
@@ -52,11 +59,6 @@ const MainContentWrapper = styled.div`
     }
   }
 
-  ${Aside}{
-    
-  }
-  ${MainContent}{
-  }
 `
 
 const Wrapper = styled.div`  
@@ -64,6 +66,9 @@ const Wrapper = styled.div`
   min-height: 100%;
   max-width: 1080px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  
   ${({ theme }) => theme.mediaQuery.large} {  
     background-color: ${({ theme }) => theme.palette.grey.lightest};
   }

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const palette = {
-  blue: "#009EFF",
+  primary: "#009EFF",
   white: "#fff",
   grey: {
     darker: "#161616",
@@ -67,7 +67,7 @@ export default {
   spacer: 8,
   radius: 4,
   shadows: {
-    primary: `0px 10px 20px ${palette.blue}1A`, // 10% transparency
+    primary: `0px 10px 20px ${palette.primary}1A`, // 10% transparency
     secondary: `0px 10px 20px rgba(22, 22, 22, 0.1)`,
   },
   textBody: {

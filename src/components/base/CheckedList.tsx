@@ -21,13 +21,13 @@ const Wrapper = styled.ul`
   }
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
   children?: React.ReactNode;
   items?: string[];
 }
 
-const Component: React.FC = ({ className, items = [] }: Props) => {
+const Component: React.FC<Props> = ({ className, items = [] }: Props) => {
 
   const classes = ['CheckedList']
   if (className) classes.push(className);
