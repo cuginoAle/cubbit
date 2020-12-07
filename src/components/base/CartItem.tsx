@@ -15,6 +15,10 @@ const Wrapper = styled.div`
       color:${({ theme }) => theme.palette.primary};
       margin: 0;
     }
+
+    .QuantityPicker{
+      font-size: 2rem;
+    }
   }
 
   .details {
@@ -24,8 +28,8 @@ const Wrapper = styled.div`
     .number {
       text-align: right;
     }
-    .quantityPicker {
-      text-align: center;
+    .quantityPickerCell {
+      text-align: center;      
     }
     td {
       padding:${({ theme }) => theme.spacer}px ${({ theme }) => theme.spacer * 2}px;
@@ -105,7 +109,7 @@ const Component: React.FC = ({ className, item, mode = 'default', onChange = () 
         <tbody>
           {isCompact && (
             <tr>
-              <td className='quantityPicker' colSpan={2}><QuantityPicker {...qtyOptions} /></td>
+              <td className='quantityPickerCell' colSpan={2}><QuantityPicker {...qtyOptions} /></td>
             </tr>
           )}
           <tr>

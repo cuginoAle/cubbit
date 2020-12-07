@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 
   button{
     font-size: inherit;
-    margin: -1px;
     border: 1px solid ${({ theme }) => theme.palette.grey.lighter};
     border-radius: ${({ theme }) => theme.radius}px;
     width: 1.375em;
@@ -22,7 +21,7 @@ const Wrapper = styled.div`
     width: 2em;    
     border: none;
     text-align: center;
-
+    position: relative;
   }
   
 `;
@@ -41,17 +40,15 @@ const Component: React.FC = ({ className, quantity = 1, onChange = () => null, n
   if (className) classes.push(className);
 
   function increment() {
-    const newValue = quantity + 1;
-    onChange(newValue);
+    onChange(quantity + 1);
   }
 
   function decrement() {
-    const newValue = Math.max(quantity - 1, 1);
-    onChange(newValue);
+    onChange(Math.max(quantity - 1, 1));
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    onChange(Math.max(parseInt(e.target.value, 10), 1))
+    onChange(Math.max(parseInt(e.target.value, 10) || 1, 1))
   }
 
   return (
@@ -63,6 +60,6 @@ const Component: React.FC = ({ className, quantity = 1, onChange = () => null, n
   )
 }
 
-// Component.displayName = 'QuantityPicker'
+Component.displayName = 'QuantityPicker'
 
 export default Component

@@ -11,7 +11,9 @@ const Wrapper = styled.ul`
     font-size: 1.6rem;
     line-height: 1.625;
     color:${({ theme }) => theme.palette.grey.light};
-    margin-bottom: ${({ theme }) => theme.spacer * 2}px;
+    &:not(:last-child){
+      margin-bottom: ${({ theme }) => theme.spacer * 2}px;
+    }
   }
 
   svg{

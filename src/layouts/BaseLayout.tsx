@@ -35,7 +35,7 @@ const MainContentWrapper = styled.div`
   ${Aside}{
     order:0;    
     >*{
-        margin: 0 auto ${({ theme }) => theme.spacer * 4}px;
+        margin: 0 auto ${({ theme }) => theme.spacer * 3}px;
       }
   }
   ${MainContent}{
@@ -50,7 +50,7 @@ const MainContentWrapper = styled.div`
       flex-basis: 50%;
       >*{
         max-width: 400px;
-        margin: 0 auto ${({ theme }) => theme.spacer * 4}px;
+        margin: 0 auto ${({ theme }) => theme.spacer * 3}px;
       }
     }
     ${MainContent}{
