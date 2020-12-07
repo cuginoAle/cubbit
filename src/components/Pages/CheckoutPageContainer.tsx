@@ -8,6 +8,7 @@ import AsSeenOn from 'components/widgets/AsSeenOn';
 import FundRaising from 'components/widgets/FundRaising';
 import FundedBy from 'components/widgets/FundedBy';
 import BenefitList from 'components/widgets/BenefitList';
+import OrderSummary from 'components/widgets/OrderSummary';
 
 const Wrapper = styled.div`
   min-height: 100%;
@@ -41,13 +42,14 @@ const Component: React.FC = ({ className }: Props) => {
           <LargeScreenOnly>
             <WizardStepsContainer />
           </LargeScreenOnly>
-          Some Main content here!
+
         </MainContent>
 
         <Aside>
           <SmallScreenOnly>
             <WizardStepsContainer />
           </SmallScreenOnly>
+          <OrderSummary />
           <BenefitList />
           <FundRaising />
           <AsSeenOn />

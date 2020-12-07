@@ -5,7 +5,7 @@ import { ReactComponent as Indiegogo } from 'assets/svgs/indiegogo.svg';
 import ExternalCreditsComponent, { Props as CreditsProp } from './ExternalCredits';
 
 export default {
-  title: '/ExternalCredits',
+  title: '/External Credits',
   component: ExternalCreditsComponent,
 };
 

@@ -7,13 +7,14 @@ interface StyledProp {
 
 const Wrapper = styled.div<StyledProp>`
   margin-bottom:${({ theme }) => theme.spacer * 3}px;
-  > section{
+  .sectionContent{
+    background-color: ${({ theme }) => theme.palette.white};
     border: ${({ showBorder, theme }) => showBorder && `1px solid ${theme.section.borderColor.light}`} ;
     border-radius:  ${({ theme }) => theme.radius}px;
   }
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
   title?: string;
   subTitle?: string;
@@ -31,7 +32,7 @@ const Component: React.FC = ({ className, title, subTitle, children, showBorder 
       {title && <h3>{title}</h3>}
       {subTitle && <h4>{subTitle}</h4>}
 
-      <section>
+      <section className='sectionContent'>
         {children}
       </section>
 

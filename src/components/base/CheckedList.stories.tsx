@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0';
 import CheckedListComponent, { Props as ListProps } from './CheckedList';
 
 export default {
-  title: '/CheckedList',
+  title: '/Checked List',
   component: CheckedListComponent,
 };
 
