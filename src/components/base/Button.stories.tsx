@@ -1,5 +1,6 @@
 import React from "react";
 import ButtonComponent from "./Button";
+import { Story } from '@storybook/react/types-6-0';
 import { boolean } from "@storybook/addon-knobs";
 
 export default {
@@ -7,7 +8,7 @@ export default {
   component: ButtonComponent,
 };
 
-export const Button: React.FC = () => {
+export const Button: Story = () => {
   const isPrimary: boolean = boolean("Primary", true);
   return (
     <ButtonComponent {...{ primary: isPrimary }}>

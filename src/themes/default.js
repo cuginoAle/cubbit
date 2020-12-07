@@ -9,7 +9,18 @@ const palette = {
     normal: "#98A0A6",
     light: "#B0B6BA",
     lighter: "#ECECEC",
+    lightest: "#F7F7F7",
   },
+};
+
+const breakPoints = {
+  small: "max-width: 640px",
+  large: "min-width: 641px",
+};
+
+const mediaQuery = {
+  small: `@media screen and (${breakPoints.small})`,
+  large: `@media screen and (${breakPoints.large})`,
 };
 
 const textSize = {
@@ -49,9 +60,11 @@ export const Typography = createGlobalStyle`
 `;
 
 export default {
+  palette,
+  textSize,
+  mediaQuery,
+  breakPoints,
   spacer: 8,
-  palette: palette,
-  textSize: textSize,
   radius: 4,
   shadows: {
     primary: `0px 10px 20px ${palette.blue}1A`, // 10% transparency

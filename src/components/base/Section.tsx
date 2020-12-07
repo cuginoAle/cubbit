@@ -13,7 +13,7 @@ const Wrapper = styled.div<StyledProp>`
   }
 `;
 
-interface Props {
+export interface Props {
   className?: string;
   title?: string;
   subTitle?: string;

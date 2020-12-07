@@ -1,5 +1,6 @@
 import React from "react";
-import SectionComponent from "./Section";
+import SectionComponent, { Props as SectionProps } from "./Section";
+import { Story } from '@storybook/react/types-6-0';
 import { text, boolean } from "@storybook/addon-knobs";
 
 export default {
@@ -7,7 +8,7 @@ export default {
   component: SectionComponent,
 };
 
-export const Section: React.FC = () => {
+export const Section: Story<SectionProps> = () => {
   const title = text("title", "New section");
   const subTitle = text("sub title", "This is kinda cool");
   const showBorder = boolean("Show border", true);
