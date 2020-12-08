@@ -10,13 +10,12 @@ const Wrapper = styled.div<StyledProp>`
   width: ${({ width }) => width}px;
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
   width?: number;
-  children?: React.ReactNode;
 }
 
-const Component: React.FC = ({ className, width = 108 }: Props) => {
+const Component: React.FC<Props> = ({ className, width = 108 }: Props) => {
 
   const classes = ['Logo']
   if (className) classes.push(className);

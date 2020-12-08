@@ -6,9 +6,8 @@ import ExternalCredits, { Props as CreditsProp } from 'components/base/ExternalC
 
 const Wrapper = styled.div``;
 
-export interface Props {
+export type Props = {
   className?: string;
-  children?: React.ReactNode;
 }
 
 const options: CreditsProp = {
@@ -19,7 +18,7 @@ const options: CreditsProp = {
   ]
 }
 
-const Component: React.FC = ({ className }: Props) => {
+const Component: React.FC<Props> = ({ className }: Props) => {
 
   const classes = ['AsSeenOn']
   if (className) classes.push(className);

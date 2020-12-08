@@ -25,11 +25,10 @@ const Wrapper = styled.ul`
 
 export type Props = {
   className?: string;
-  children?: React.ReactNode;
-  items?: string[];
+  items: string[];
 }
 
-const Component: React.FC<Props> = ({ className, items = [] }: Props) => {
+const Component: React.FC<Props> = ({ className, items }: Props) => {
 
   const classes = ['CheckedList']
   if (className) classes.push(className);

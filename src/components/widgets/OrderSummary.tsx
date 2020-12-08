@@ -11,12 +11,11 @@ const Wrapper = styled.div`
   }
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
-  children?: React.ReactNode;
 }
 
-const Component: React.FC = ({ className }: Props) => {
+const Component: React.FC<Props> = ({ className }: Props) => {
 
   const classes = ['OrderSummary']
   if (className) classes.push(className);

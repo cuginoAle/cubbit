@@ -9,6 +9,9 @@ import FundRaising from 'components/widgets/FundRaising';
 import FundedBy from 'components/widgets/FundedBy';
 import BenefitList from 'components/widgets/BenefitList';
 import OrderSummary from 'components/widgets/OrderSummary';
+import ContactInformation from 'components/widgets/ContactInformation';
+import ShippingAddress from 'components/widgets/ShippingAddress';
+import { useForm } from "react-hook-form";
 
 const Wrapper = styled.div`
   min-height: 100%;
@@ -18,6 +21,9 @@ const Wrapper = styled.div`
     >*{
       margin-bottom:${({ theme }) => theme.spacer * 4}px;
     }
+  }
+  #orderForm {
+    display: contents;
   }
 `;
 
@@ -31,6 +37,8 @@ const Component: React.FC = ({ className }: Props) => {
   const classes = ['CheckoutPage']
   if (className) classes.push(className);
 
+  const { register, handleSubmit, watch, errors } = useForm();
+
 
   return (
     <Wrapper className={classes.join(' ')}>
@@ -38,24 +46,27 @@ const Component: React.FC = ({ className }: Props) => {
       <BaseLayout {...{
         header: <Header />
       }}>
-        <MainContent>
-          <LargeScreenOnly>
-            <WizardStepsContainer />
-          </LargeScreenOnly>
+        <form id="orderForm">
+          <MainContent>
+            <LargeScreenOnly>
+              <WizardStepsContainer />
+            </LargeScreenOnly>
+            <ContactInformation />
+            <ShippingAddress />
+          </MainContent>
 
-        </MainContent>
+          <Aside>
+            <SmallScreenOnly>
+              <WizardStepsContainer />
+            </SmallScreenOnly>
+            <OrderSummary />
+            <BenefitList />
+            <FundRaising />
+            <AsSeenOn />
+            <FundedBy />
 
-        <Aside>
-          <SmallScreenOnly>
-            <WizardStepsContainer />
-          </SmallScreenOnly>
-          <OrderSummary />
-          <BenefitList />
-          <FundRaising />
-          <AsSeenOn />
-          <FundedBy />
-
-        </Aside>
+          </Aside>
+        </form>
       </BaseLayout>
     </Wrapper>
   )

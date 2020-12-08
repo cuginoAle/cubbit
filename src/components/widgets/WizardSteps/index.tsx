@@ -8,7 +8,7 @@ const Wrapper = styled.ul`
 `;
 
 
-export interface Props {
+export type Props = {
   className?: string;
   children?: React.ReactNode;
   steps?: Array<StepInterface>;

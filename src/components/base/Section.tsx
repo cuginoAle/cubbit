@@ -21,7 +21,7 @@ export type Props = {
   children?: React.ReactNode;
 }
 
-const Component: React.FC = ({ className, title, subTitle, children, showBorder }: Props) => {
+const Component: React.FC<Props> = ({ className, title, subTitle, children, showBorder = true }: Props) => {
 
   const classes = ['Section']
   if (className) classes.push(className);

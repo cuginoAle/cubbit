@@ -5,6 +5,8 @@ import styled from 'styled-components';
 const Wrapper = styled.label`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  
   .fieldLabel {
     margin-left: 2px;
     margin-bottom:  ${({ theme }) => theme.spacer / 2}px;
@@ -14,6 +16,7 @@ const Wrapper = styled.label`
     padding: .7em;
     border: 1px solid ${({ theme }) => theme.palette.grey.lighter};
     border-radius:${({ theme }) => theme.radius}px;
+    width: 100%;
   }
   &.validationError {
     input{
@@ -28,14 +31,13 @@ const Wrapper = styled.label`
   }
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
-  children?: React.ReactNode;
   label?: string;
   validationError?: string;
 }
 
-const Component: React.FC = ({ className, label = '', validationError, ...rest }: Props) => {
+const Component: React.FC<Props> = ({ className, label, validationError, ...rest }: Props) => {
 
   const classes = ['InputField']
   if (className) classes.push(className);
@@ -43,7 +45,7 @@ const Component: React.FC = ({ className, label = '', validationError, ...rest }
 
   return (
     <Wrapper className={classes.join(' ')}>
-      <span className='fieldLabel'>{label}</span>
+      {label && <span className='fieldLabel'>{label}</span>}
       <input {...rest} />
       {validationError && <p className='validationErrorMessage'>{validationError}</p>}
     </Wrapper>

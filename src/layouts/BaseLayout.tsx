@@ -62,7 +62,6 @@ const MainContentWrapper = styled.div`
 `
 
 const Wrapper = styled.div`  
-  height: 1px;
   min-height: 100%;
   max-width: 1080px;
   margin: auto;

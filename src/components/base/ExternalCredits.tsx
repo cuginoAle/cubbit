@@ -23,8 +23,7 @@ const Wrapper = styled.div`
 
 export type Props = {
   className?: string;
-  children?: React.ReactNode;
-  credits?: Credit[];
+  credits: Credit[];
   heading?: string;
 }
 
@@ -33,14 +32,14 @@ export type Credit = {
   svg: React.FC;
 }
 
-const Component: React.FC = ({ className, credits = [], heading }: Props) => {
+const Component: React.FC<Props> = ({ className, credits, heading }: Props) => {
 
   const classes = ['ExternalCredits']
   if (className) classes.push(className);
 
   return (
     <Wrapper className={classes.join(' ')}>
-      <h4 className='heading'>{heading}</h4>
+      {heading && <h4 className='heading'>{heading}</h4>}
       <ul className='creditList'>
         {credits.map(c => {
           const Svg = c.svg

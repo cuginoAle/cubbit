@@ -15,8 +15,8 @@ const palette = {
 };
 
 const breakPoints = {
-  small: "max-width: 640px",
-  large: "min-width: 641px",
+  small: "max-width: 680px",
+  large: "min-width: 681px",
 };
 
 const mediaQuery = {

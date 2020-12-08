@@ -8,7 +8,7 @@ interface StyledProps {
 interface Props {
   className?: string;
   primary?: boolean;
-  children?: React.ReactNode;
+  children: React.ReactNode;
   onClick?(): void;
 }
 
@@ -27,7 +27,7 @@ const Wrapper = styled.button<StyledProps>`
 `;
 
 
-const Button: React.FC = ({ className, primary, children, onClick }: Props) => {
+const Button: React.FC<Props> = ({ className, primary, children, onClick }: Props) => {
 
   const classes = ['Button']
   if (className) classes.push(className);

@@ -26,15 +26,14 @@ const Wrapper = styled.div`
   
 `;
 
-export interface Props {
+export type Props = {
   className?: string;
   initialQuantity?: number;
-  children?: React.ReactNode;
-  onChange?(value: number): void;
+  onChange?: (value: number) => void;
   name?: string;
 }
 
-const Component: React.FC = ({ className, initialQuantity = 1, onChange = () => null, name }: Props) => {
+const Component: React.FC<Props> = ({ className, initialQuantity = 1, onChange = () => null, name }: Props) => {
   const [qty, setQty] = useState(initialQuantity);
 
   const classes = ['QuantityPicker']

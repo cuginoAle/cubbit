@@ -2,9 +2,8 @@ import React from 'react';
 
 import CheckedList from 'components/base/CheckedList';
 
-export interface Props {
+export type Props = {
   className?: string;
-  children?: React.ReactNode;
 }
 
 const benefits = [
@@ -13,7 +12,7 @@ const benefits = [
   "2 year warranty"
 ]
 
-const Component: React.FC = ({ className }: Props) => {
+const Component: React.FC<Props> = ({ className }: Props) => {
 
   const classes = ['BenefitList']
   if (className) classes.push(className);

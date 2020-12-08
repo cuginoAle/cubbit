@@ -53,9 +53,8 @@ const Wrapper = styled.div`
 
 export type Props = {
   className?: string;
-  children?: React.ReactNode;
   mode?: "compact" | "default";
-  item?: {
+  item: {
     name: string;
     quantity: number;
     unitPrice: number;
@@ -75,7 +74,7 @@ function calcRoundedDiscount(num: number, perc: number) {
   return num - calcRoundedPerc(num, perc);
 }
 
-const Component: React.FC = ({ className, item, mode = 'default', onChange = () => null }: Props) => {
+const Component: React.FC<Props> = ({ className, item, mode = 'default', onChange = () => null }: Props) => {
   const [quantity, setQuantity] = useState(1);
 
   function changeQty(value: number) {

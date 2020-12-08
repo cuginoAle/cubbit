@@ -34,7 +34,7 @@ const StyledStep = styled.li<StyledProps>`
   }
 `
 
-export interface Props {
+export type Props = {
   index?: number;
   label?: string;
   active?: boolean;
