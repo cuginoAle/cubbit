@@ -76,16 +76,16 @@ function calcRoundedDiscount(num: number, perc: number) {
 }
 
 const Component: React.FC = ({ className, item, mode = 'default', onChange = () => null }: Props) => {
-  const [qty, setQty] = useState(1);
+  const [quantity, setQuantity] = useState(1);
 
   function changeQty(value: number) {
-    setQty(value)
+    setQuantity(value)
     onChange(value);
   }
 
   const qtyOptions: QtyProps = {
     onChange: changeQty,
-    quantity: qty
+    initialQuantity: 1
   }
 
   const classes = ['CartItem']
@@ -114,7 +114,7 @@ const Component: React.FC = ({ className, item, mode = 'default', onChange = () 
           )}
           <tr>
             <td>{item.name}</td>
-            <td className='number'>{item.currency}{item.unitPrice * qty}</td>
+            <td className='number'>{item.currency}{item.unitPrice * quantity}</td>
           </tr>
 
           <tr>
@@ -123,13 +123,13 @@ const Component: React.FC = ({ className, item, mode = 'default', onChange = () 
           </tr>
           <tr>
             <td>Discount {item.percDiscount}&#37;</td>
-            <td className='number'>- {item.currency}{calcRoundedPerc(item.unitPrice * qty, item.percDiscount)}</td>
+            <td className='number'>- {item.currency}{calcRoundedPerc(item.unitPrice * quantity, item.percDiscount)}</td>
           </tr>
         </tbody>
         <tfoot>
           <tr>
             <td>Total</td>
-            <td className='number'>{item.currency}{calcRoundedDiscount(item.unitPrice * qty, item.percDiscount)}</td>
+            <td className='number'>{item.currency}{calcRoundedDiscount(item.unitPrice * quantity, item.percDiscount)}</td>
           </tr>
         </tfoot>
       </table>

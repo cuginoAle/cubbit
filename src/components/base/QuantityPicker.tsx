@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -28,34 +28,41 @@ const Wrapper = styled.div`
 
 export interface Props {
   className?: string;
-  quantity?: number;
+  initialQuantity?: number;
   children?: React.ReactNode;
   onChange?(value: number): void;
   name?: string;
 }
 
-const Component: React.FC = ({ className, quantity = 1, onChange = () => null, name }: Props) => {
+const Component: React.FC = ({ className, initialQuantity = 1, onChange = () => null, name }: Props) => {
+  const [qty, setQty] = useState(initialQuantity);
 
   const classes = ['QuantityPicker']
   if (className) classes.push(className);
 
   function increment() {
-    onChange(quantity + 1);
+    const newValue = qty + 1;
+    setQty(newValue);
+    onChange(newValue);
   }
 
   function decrement() {
-    onChange(Math.max(quantity - 1, 1));
+    const newValue = Math.max(qty - 1, 1);
+    setQty(newValue);
+    onChange(newValue);
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    onChange(Math.max(parseInt(e.target.value, 10) || 1, 1))
+    const newValue = Math.max(parseInt(e.target.value, 10) || 1, 1);
+    setQty(newValue);
+    onChange(newValue)
   }
 
   return (
     <Wrapper className={classes.join(' ')}>
-      <button onClick={decrement}>-</button>
-      <input type='text' className="value" onChange={handleChange} value={quantity} name={name} />
-      <button onClick={increment}>+</button>
+      <button type='button' onClick={decrement}>-</button>
+      <input type='text' className="value" onChange={handleChange} value={qty} name={name} />
+      <button type='button' onClick={increment}>+</button>
     </Wrapper>
   )
 }
