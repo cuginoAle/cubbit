@@ -5,6 +5,7 @@ import Header from "components/widgets/Header";
 import WizardStepsContainer from "components/containers/WizardStepsContainer";
 import ThankYou from "components/widgets/ThankYou";
 import CopyRights from "components/base/CopyRights";
+import { RouteComponentProps } from "react-router-dom";
 
 const Wrapper = styled.div`
   .mainContent {
@@ -14,9 +15,8 @@ const Wrapper = styled.div`
   }
 `;
 
-type Props = {
+type Props = RouteComponentProps & {
   className?: string;
-  location: Location;
 };
 
 const Component: React.FC<Props> = ({ className, location }: Props) => {

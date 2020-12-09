@@ -31,7 +31,7 @@ type Props = {
   children?: React.ReactNode;
 };
 
-const Component: React.FC<Props> = ({ className, children }: Props) => {
+const Component: React.FC<Props> = ({ className }: Props) => {
   const classes = ["ThankYou"];
   if (className) classes.push(className);
 

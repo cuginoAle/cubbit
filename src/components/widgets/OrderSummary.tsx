@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Section, { Props as sectionProps } from "components/base/Section";
+import Section from "components/base/Section";
 import CartItem, { Props as ItemProps } from "components/base/CartItem";
 import cubbitCellPict from "assets/cell.png";
 import { useIsSmall } from "helpers/responsive";

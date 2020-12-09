@@ -1,32 +1,34 @@
 import React from "react";
 import InputFieldComponent from "./InputField";
-import { Story } from '@storybook/react/types-6-0';
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
   title: "/Input Field",
   component: InputFieldComponent,
   argTypes: {
-    onChange: { action: 'Change' },
+    onChange: { action: "Change" },
+    name: {
+      control: "text",
+      defaultValue: "username",
+      table: {
+        disable: true,
+      },
+    },
     label: {
-      control: 'text',
-      defaultValue: "User name"
+      control: "text",
+      defaultValue: "User name",
     },
     defaultValue: {
-      control: 'text',
-      defaultValue: 'John Doe',
+      control: "text",
+      defaultValue: "John Doe",
       table: {
-        disable: true
-      }
+        disable: true,
+      },
     },
     validationError: {
-      control: 'text'
-    }
-  }
+      control: "text",
+    },
+  },
 };
 
-export const InputField: Story = (args) => {
-
-  return (
-    <InputFieldComponent {...args} />
-  );
-};
+export const InputField: Story = (args) => <InputFieldComponent {...args} />;

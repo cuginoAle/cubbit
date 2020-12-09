@@ -16,7 +16,10 @@ import PaymentMethods from "components/widgets/PaymentMethods";
 import TermsAndConditions from "components/widgets/TermAndConsitions";
 import Button from "components/base/Button";
 
+import { RouteComponentProps } from "react-router-dom";
+
 import { useForm, FormProvider } from "react-hook-form";
+import { RouteProps } from "react-router-dom";
 
 const Wrapper = styled.div`
   min-height: 100%;
@@ -49,18 +52,22 @@ const Wrapper = styled.div`
   }
 `;
 
-type Props = {
+type Props = RouteComponentProps & {
   className?: string;
-  location: Location;
 };
 
-const Component: React.FC<Props> = ({ className }: Props) => {
+const Component: React.FC<Props> = ({
+  className,
+  location,
+  history,
+}: Props) => {
   const methods = useForm();
   const classes = ["CheckoutPage"];
   if (className) classes.push(className);
 
   function onSubmit(data: Record<string, unknown>) {
     console.log(data);
+    history.push("/thankyou");
   }
 
   function formIsInvalid() {
