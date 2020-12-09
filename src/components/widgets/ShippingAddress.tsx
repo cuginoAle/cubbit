@@ -1,47 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import Section, { Props as SectionProps } from 'components/base/Section';
-import InputField from 'components/base/InputField';
-import DropDown from 'components/base/DropDown';
-import FieldsWrapper from 'components/base/FormFieldsWrapper';
-import countries from 'helpers/europeanCountries';
+import React from "react";
+import styled from "styled-components";
+import Section from "components/base/Section";
+import FieldsWrapper from "components/base/FormFieldsWrapper";
+import ShippinAddressFields from "components/widgets/CheckoutFormFieldsets/ShippingAddress";
 
-const countriesList = countries.map(c => ({ label: c, value: c }))
-const Wrapper = styled.div`
-  
-`;
+const Wrapper = styled.div``;
 
 export type Props = {
   className?: string;
-}
+};
 
 const Component: React.FC<Props> = ({ className }: Props) => {
-
-  const classes = ['ShippingAddress']
+  const classes = ["ShippingAddress"];
   if (className) classes.push(className);
 
-  const sectionProps: SectionProps = {
-    title: "Shipping address",
-    showBorder: true,
-  }
-
-
   return (
-    <Wrapper className={classes.join(' ')}>
-      <Section {...sectionProps}>
+    <Wrapper className={classes.join(" ")}>
+      <Section title="Shipping address" showBorder={true}>
         <FieldsWrapper>
-          <InputField {...{ name: 'street', label: "Street address" }} />
-          <InputField {...{ name: 'otherInfo', label: "Other info (optional)" }} />
-          <InputField {...{ name: 'postCode', label: "Post code" }} />
-          <DropDown {...{ name: 'country', label: "Country", options: countriesList, placeholder: 'Select Country' }} />
-          <InputField {...{ name: 'city', label: "City" }} />
-          <InputField {...{ name: 'state', label: "State/Region/Province" }} />
+          <ShippinAddressFields namePrefix="address_" />
         </FieldsWrapper>
       </Section>
     </Wrapper>
-  )
-}
+  );
+};
 
-Component.displayName = 'ShippingAddress'
+Component.displayName = "ShippingAddress";
 
-export default Component
+export default Component;

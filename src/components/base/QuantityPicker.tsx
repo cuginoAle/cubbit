@@ -15,6 +15,7 @@ const Wrapper = styled.div`
     width: 1.375em;
     height: 1.375em;
     padding: 0;
+    outline-color: ${({ theme }) => theme.palette.primary};
   }
 
   .value{
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
     border: none;
     text-align: center;
     position: relative;
+    outline-color: ${({ theme }) => theme.palette.primary};
   }
   
 `;

@@ -20,7 +20,7 @@ const options: CreditsProp = {
 
 const Component: React.FC<Props> = ({ className }: Props) => {
 
-  const classes = ['FundRaising']
+  const classes = ['FundRaisingPlatforms']
   if (className) classes.push(className);
 
   return (
@@ -30,6 +30,6 @@ const Component: React.FC<Props> = ({ className }: Props) => {
   )
 }
 
-Component.displayName = 'FundRaising'
+Component.displayName = 'FundRaisingPlatforms'
 
 export default Component

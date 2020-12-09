@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   }
 `;
 
-export type Props = {
+type Props = {
   className?: string;
   children?: React.ReactNode;
 }

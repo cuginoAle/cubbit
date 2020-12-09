@@ -1,43 +1,30 @@
-import React from 'react';
-import styled from 'styled-components';
-import Section, { Props as SectionProps } from 'components/base/Section';
-import InputField from 'components/base/InputField';
-import FieldsWrapper, { SameLine } from 'components/base/FormFieldsWrapper';
+import React from "react";
+import styled from "styled-components";
+import Section from "components/base/Section";
+import FieldsWrapper from "components/base/FormFieldsWrapper";
+import ContentInfoFields from "components/widgets/CheckoutFormFieldsets/ContactInformation";
 
-const Wrapper = styled.div`
-  
-`;
+const Wrapper = styled.div``;
 
 export type Props = {
   className?: string;
-}
+};
 
 const Component: React.FC<Props> = ({ className }: Props) => {
-
-  const classes = ['ContactInformation']
+  const classes = ["ContactInformation"];
   if (className) classes.push(className);
 
-  const sectionProps: SectionProps = {
-    title: "Contact information",
-    showBorder: true,
-  }
-
   return (
-    <Wrapper className={classes.join(' ')}>
-      <Section {...sectionProps}>
+    <Wrapper className={classes.join(" ")}>
+      <Section title="Contact information" showBorder={true}>
         <FieldsWrapper>
-          <InputField {...{ name: 'email', label: "Email" }} />
-          <InputField {...{ name: 'phoneNum', label: "Phone number" }} />
-          <SameLine>
-            <InputField {...{ name: 'firstName', label: "First name" }} />
-            <InputField {...{ name: 'lastName', label: "Last name" }} />
-          </SameLine>
+          <ContentInfoFields />
         </FieldsWrapper>
       </Section>
     </Wrapper>
-  )
-}
+  );
+};
 
-Component.displayName = 'ContactInformation'
+Component.displayName = "ContactInformation";
 
-export default Component
+export default Component;

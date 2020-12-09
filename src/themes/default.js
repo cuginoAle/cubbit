@@ -29,6 +29,7 @@ const textSize = {
   h2: "2.8rem",
   h3: "2.4rem",
   h4: "1.6rem",
+  h5: "1.2rem",
   textBody: "1.2rem",
 };
 
@@ -57,6 +58,15 @@ export const Typography = createGlobalStyle`
     font-size:${textSize.h4};
     margin: 0 0 ${textSize.h4};
     font-weight: normal;
+  }
+  h5{
+    font-size:${textSize.h5};
+    margin: 0 0 ${textSize.h5};
+    font-weight: 700;
+  }
+
+  a {
+    color:${palette.primary};
   }
 `;
 
