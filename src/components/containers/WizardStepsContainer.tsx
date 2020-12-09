@@ -1,22 +1,29 @@
-import React from 'react';
-import WizardSteps, { Props as WizardProps } from 'components/widgets/WizardSteps';
+import React from "react";
+import WizardSteps, {
+  Props as WizardProps,
+} from "components/widgets/WizardSteps";
 
-// TODO: add here logic to set the active tile according to the route the user is in.
-const options: WizardProps = {
-  steps: [{
-    label: "checkout",
-    active: true
-  },
-  {
-    label: "confirmation",
-    active: false
-  }]
-}
+type Props = {
+  pathname: string;
+};
 
-const Component: React.FC = () => {
-  return (<WizardSteps {...options} />)
-}
+const Component: React.FC<Props> = ({ pathname }: Props) => {
+  const options: WizardProps = {
+    steps: [
+      {
+        label: "checkout",
+        active: true,
+      },
+      {
+        label: "confirmation",
+        active: pathname === "/thankyou",
+      },
+    ],
+  };
 
-Component.displayName = 'WizardStepsContainer';
+  return <WizardSteps {...options} />;
+};
+
+Component.displayName = "WizardStepsContainer";
 
 export default Component;

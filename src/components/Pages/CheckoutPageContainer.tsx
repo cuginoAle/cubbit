@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styled from "styled-components";
-import BaseLayout, { MainContent, Aside } from "layouts/BaseLayout";
+import TwoColLayout, { MainContent, Aside } from "layouts/TwoColLayout";
 import Header from "components/widgets/Header";
 import WizardStepsContainer from "components/containers/WizardStepsContainer";
 import { SmallScreenOnly, LargeScreenOnly } from "helpers/responsive";
@@ -16,7 +16,7 @@ import PaymentMethods from "components/widgets/PaymentMethods";
 import TermsAndConditions from "components/widgets/TermAndConsitions";
 import Button from "components/base/Button";
 
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 
 const Wrapper = styled.div`
   min-height: 100%;
@@ -30,33 +30,46 @@ const Wrapper = styled.div`
   }
 
   .CTAs {
-    display: flex;
-    justify-content: space-between;
+    .buttonsWrapper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: ${({ theme }) => theme.spacer * 2}px;
+    }
+    .formInvalidMessage {
+      text-align: right;
+    }
   }
 
   #orderForm {
     display: contents;
   }
+
+  .formInvalidMessage {
+    color: ${({ theme }) => theme.palette.accent};
+  }
 `;
 
-export type Props = {
+type Props = {
   className?: string;
-  children?: ReactNode;
+  location: Location;
 };
 
-const Component: React.FC = ({ className }: Props) => {
+const Component: React.FC<Props> = ({ className }: Props) => {
   const methods = useForm();
   const classes = ["CheckoutPage"];
   if (className) classes.push(className);
 
-  function onSubmit(data: any) {
+  function onSubmit(data: Record<string, unknown>) {
     console.log(data);
   }
-  console.log(methods.errors);
+
+  function formIsInvalid() {
+    return Object.keys(methods.errors).length > 0;
+  }
 
   return (
     <Wrapper className={classes.join(" ")}>
-      <BaseLayout
+      <TwoColLayout
         {...{
           header: <Header />,
         }}
@@ -69,8 +82,14 @@ const Component: React.FC = ({ className }: Props) => {
           >
             <MainContent>
               <LargeScreenOnly>
-                <WizardStepsContainer />
+                <WizardStepsContainer pathname={location.pathname} />
               </LargeScreenOnly>
+              {formIsInvalid() && (
+                <h4 className="formInvalidMessage">
+                  There are some errors in the form, please correct them before
+                  submitting the form.
+                </h4>
+              )}
 
               <ContactInformation />
               <ShippingAddress />
@@ -78,16 +97,24 @@ const Component: React.FC = ({ className }: Props) => {
               <PaymentMethods />
               <TermsAndConditions />
               <div className="CTAs">
-                <Button type="button">Back</Button>
-                <Button type="submit" primary>
-                  Buy Now
-                </Button>
+                <div className="buttonsWrapper">
+                  <Button type="button">Back</Button>
+                  <Button type="submit" primary>
+                    Buy Now
+                  </Button>
+                </div>
+
+                {formIsInvalid() && (
+                  <h4 className="formInvalidMessage">
+                    Please correct the error(s) above
+                  </h4>
+                )}
               </div>
             </MainContent>
 
             <Aside>
               <SmallScreenOnly>
-                <WizardStepsContainer />
+                <WizardStepsContainer pathname={location.pathname} />
               </SmallScreenOnly>
 
               <OrderSummary />
@@ -98,7 +125,7 @@ const Component: React.FC = ({ className }: Props) => {
             </Aside>
           </form>
         </FormProvider>
-      </BaseLayout>
+      </TwoColLayout>
     </Wrapper>
   );
 };

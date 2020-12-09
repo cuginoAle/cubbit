@@ -1,78 +1,74 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 export const Aside = styled.div`
   padding: 0 ${({ theme }) => theme.spacer * 2}px;
-  ${({ theme }) => theme.mediaQuery.large} {        
+  ${({ theme }) => theme.mediaQuery.large} {
   }
-`
+`;
 
 export const MainContent = styled.div`
   background-color: ${({ theme }) => theme.palette.white};
   padding: 0 ${({ theme }) => theme.spacer * 2}px;
-  ${({ theme }) => theme.mediaQuery.large} {  
-  
+  ${({ theme }) => theme.mediaQuery.large} {
   }
-`
+`;
 
-const Header = styled.div`  
+const Header = styled.div`
   flex-shrink: 0;
-  >.headerWrapper{
+  > .headerWrapper {
     background-color: ${({ theme }) => theme.palette.white};
     padding: ${({ theme }) => theme.spacer * 4}px 0;
   }
-  ${({ theme }) => theme.mediaQuery.large} {  
-    max-width:50%;
-  
+  ${({ theme }) => theme.mediaQuery.large} {
+    max-width: 50%;
   }
-`
+`;
 
 const MainContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow:1;  
+  flex-grow: 1;
 
-  ${Aside}{
-    order:0;    
-    >*{
-        margin: 0 auto ${({ theme }) => theme.spacer * 3}px;
-      }
+  ${Aside} {
+    order: 0;
+    > * {
+      margin: 0 auto ${({ theme }) => theme.spacer * 3}px;
+    }
   }
-  ${MainContent}{
-    order:1;
+  ${MainContent} {
+    order: 1;
   }
-  
-  ${({ theme }) => theme.mediaQuery.large} {  
+
+  ${({ theme }) => theme.mediaQuery.large} {
     justify-content: center;
     flex-direction: row;
-    ${Aside}{
-      order:1;
+    ${Aside} {
+      order: 1;
       flex-basis: 50%;
-      >*{
+      > * {
         max-width: 400px;
         margin: 0 auto ${({ theme }) => theme.spacer * 3}px;
       }
     }
-    ${MainContent}{
-      order:0;
+    ${MainContent} {
+      order: 0;
       flex-basis: 50%;
     }
   }
+`;
 
-`
-
-const Wrapper = styled.div`  
+const Wrapper = styled.div`
   min-height: 100%;
   max-width: 1080px;
   margin: auto;
   display: flex;
   flex-direction: column;
-  
-  ${({ theme }) => theme.mediaQuery.large} {  
+
+  ${({ theme }) => theme.mediaQuery.large} {
     background-color: ${({ theme }) => theme.palette.grey.lightest};
   }
 `;
-
 
 export interface Props {
   className?: string;
@@ -81,24 +77,21 @@ export interface Props {
 }
 
 const Component: React.FC = ({ className, children, header }: Props) => {
-
-  const classes = ['BaseLayout']
+  const classes = ["TwoColLayout"];
   if (className) classes.push(className);
 
   return (
-    <Wrapper className={classes.join(' ')}>
-      {header && <Header>
-        <div className="headerWrapper">
-          {header}
-        </div>
-      </Header>}
-      <MainContentWrapper>
-        {children}
-      </MainContentWrapper>
+    <Wrapper className={classes.join(" ")}>
+      {header && (
+        <Header>
+          <div className="headerWrapper">{header}</div>
+        </Header>
+      )}
+      <MainContentWrapper>{children}</MainContentWrapper>
     </Wrapper>
-  )
-}
+  );
+};
 
-Component.displayName = 'BaseLayout'
+Component.displayName = "TwoColLayout";
 
-export default Component
+export default Component;

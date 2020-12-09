@@ -1,4 +1,4 @@
-export default function getErrorCopy(type: string) {
+export default function getErrorCopy(type: string):string {
   switch (type) {
     case "required":
       return "This field is mandatory";
