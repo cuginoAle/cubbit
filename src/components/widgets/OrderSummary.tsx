@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Section, { Props as sectionProps } from 'components/base/Section';
-import CartItem, { Props as ItemProps } from 'components/base/CartItem';
-import cubbitCellPict from 'assets/cell.png';
-import { useIsSmall } from 'helpers/responsive';
+import React from "react";
+import styled from "styled-components";
+import Section, { Props as sectionProps } from "components/base/Section";
+import CartItem, { Props as ItemProps } from "components/base/CartItem";
+import cubbitCellPict from "assets/cell.png";
+import { useIsSmall } from "helpers/responsive";
 
 const Wrapper = styled.div`
   .sectionContent {
@@ -13,16 +13,15 @@ const Wrapper = styled.div`
 
 export type Props = {
   className?: string;
-}
+};
 
 const Component: React.FC<Props> = ({ className }: Props) => {
-
-  const classes = ['OrderSummary']
+  const classes = ["OrderSummary"];
   if (className) classes.push(className);
   const isMobile = useIsSmall();
 
   const itemOption: ItemProps = {
-    mode: isMobile ? "compact" : 'default',
+    mode: isMobile ? "compact" : "default",
     item: {
       name: "Cubbit cell",
       quantity: 1,
@@ -30,23 +29,19 @@ const Component: React.FC<Props> = ({ className }: Props) => {
       percDiscount: 44,
       picUrl: cubbitCellPict,
       unitPrice: 589,
-      currency: "€"
-    }
-  }
-  const sectionOptions: sectionProps = {
-    title: "Order summary",
-    showBorder: true
-  }
+      currency: "€",
+    },
+  };
 
   return (
-    <Wrapper className={classes.join(' ')}>
-      <Section {...sectionOptions} >
+    <Wrapper className={classes.join(" ")}>
+      <Section title="Order summary">
         <CartItem {...itemOption} />
       </Section>
     </Wrapper>
-  )
-}
+  );
+};
 
-Component.displayName = 'OrderSummary'
+Component.displayName = "OrderSummary";
 
-export default Component
+export default Component;

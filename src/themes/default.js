@@ -58,6 +58,7 @@ export const Typography = createGlobalStyle`
     font-size:${textSize.h4};
     margin: 0 0 ${textSize.h4};
     font-weight: normal;
+    line-height: 1.8;
   }
   h5{
     font-size:${textSize.h5};
@@ -83,7 +84,7 @@ export default {
   },
   textBody: {
     primary: palette.grey.dark,
-    secondary: palette.grey.light,
+    secondary: palette.grey.normal,
   },
   button: {
     radius: 2,

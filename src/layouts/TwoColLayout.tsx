@@ -18,7 +18,7 @@ const Header = styled.div`
   flex-shrink: 0;
   > .headerWrapper {
     background-color: ${({ theme }) => theme.palette.white};
-    padding: ${({ theme }) => theme.spacer * 4}px 0;
+    padding: ${({ theme }) => theme.spacer * 3}px 0;
   }
   ${({ theme }) => theme.mediaQuery.large} {
     max-width: 50%;

@@ -7,8 +7,6 @@ import ShippingAddressFields from "components/widgets/CheckoutFormFieldsets/Ship
 
 const Wrapper = styled.div`
   .helpNotes {
-    font-size: 1.6rem;
-    line-height: 1.8;
     margin-top: 0;
   }
 `;
@@ -29,12 +27,12 @@ const Component: React.FC<Props> = ({ className }: Props) => {
 
   return (
     <Wrapper className={classes.join(" ")}>
-      <Section title="Billing information" showBorder={true}>
+      <Section title="Billing information">
         <FieldsWrapper>
-          <p className="helpNotes">
+          <h4 className="helpNotes">
             Please provide us with your billing information, so we can send you
             an invoice after order confirmation.
-          </p>
+          </h4>
           <RadioButton
             onChange={handleChange}
             value="same"

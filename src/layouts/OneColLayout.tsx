@@ -3,10 +3,16 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   min-height: 100%;
-  max-width: 1080px;
+  max-width: 540px;
   margin: auto;
   display: flex;
   flex-direction: column;
+  padding: 0 ${({ theme }) => theme.spacer * 2}px;
+
+  > .headerWrapper {
+    background-color: ${({ theme }) => theme.palette.white};
+    padding: ${({ theme }) => theme.spacer * 3}px 0;
+  }
 `;
 
 const MainContentWrapper = styled.div`

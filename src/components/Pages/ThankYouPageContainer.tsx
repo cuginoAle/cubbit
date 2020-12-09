@@ -3,8 +3,16 @@ import styled from "styled-components";
 import OneColLayout from "layouts/OneColLayout";
 import Header from "components/widgets/Header";
 import WizardStepsContainer from "components/containers/WizardStepsContainer";
+import ThankYou from "components/widgets/ThankYou";
+import CopyRights from "components/base/CopyRights";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  .mainContent {
+    > * {
+      margin-bottom: ${({ theme }) => theme.spacer * 4}px;
+    }
+  }
+`;
 
 type Props = {
   className?: string;
@@ -18,7 +26,11 @@ const Component: React.FC<Props> = ({ className, location }: Props) => {
   return (
     <Wrapper className={classes.join(" ")}>
       <OneColLayout header={<Header />}>
-        <WizardStepsContainer pathname={location.pathname} />
+        <div className="mainContent">
+          <WizardStepsContainer pathname={location.pathname} />
+          <ThankYou />
+        </div>
+        <CopyRights />
       </OneColLayout>
     </Wrapper>
   );

@@ -16,7 +16,7 @@ const Component: React.FC<Props> = ({ className }: Props) => {
 
   return (
     <Wrapper className={classes.join(" ")}>
-      <Section title="Contact information" showBorder={true}>
+      <Section title="Contact information">
         <FieldsWrapper>
           <ContentInfoFields />
         </FieldsWrapper>
