@@ -8,7 +8,14 @@ This is the test app for **Cubbit** FE position.
 
 Please clone this repo and install the dependencies.
 Once running you'll find the app available on [http://localhost:3000](http://localhost:3000) and StoryBook here [http://localhost:6006](http://localhost:6006/?path=/story/base-button--button).
-An online overview is available at
+
+---
+
+## Preview:
+
+The app build is available here: https://cuginoale.github.io/cubbit/#/
+
+The confirmation page is available here: https://cuginoale.github.io/cubbit/#/thankyou
 
 ---
 
