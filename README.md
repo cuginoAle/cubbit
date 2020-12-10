@@ -10,11 +10,11 @@ Please clone this repo and install the dependencies.
 
 Once running you'll find the app available on [http://localhost:3000](http://localhost:3000) and StoryBook here [http://localhost:6006](http://localhost:6006/?path=/story/base-button--button).
 
-### Please note:
+## Please note:
 
-I implemented the designs for the two pages following the mockups as strictly as possible; there were some little spacing/sizing inconcistencies in the designs which I normalised in my implementation.
+_I implemented the designs for the two pages following the mockups as strictly as possible; there were some little spacing/sizing inconcistencies in the designs though that I normalised in my implementation._
 
-Also, I assumed the test was to give you an overiview of my technical background and to show you how I would have built such a web ui - hence I didn't write stories and tests for all the components but just a few, to provide you with an implementation example.
+_Also, I assumed the test was to give you an overiview of my technical background and to show you how I would have built such a web ui - hence I didn't write stories and tests for all the components but just a few, to provide you with an implementation example._
 
 ---
 
