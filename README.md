@@ -19,6 +19,10 @@ The confirmation page is available here: https://cuginoale.github.io/cubbit/#/th
 
 ---
 
+<div align="center">
+    <img  src='./src/assets/screenshot.png' />
+</div>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
