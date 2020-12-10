@@ -1,27 +1,23 @@
-import React from 'react';
+import React from "react";
+import CheckedList from "components/base/CheckedList";
 
-import CheckedList from 'components/base/CheckedList';
-
-export type Props = {
+type Props = {
   className?: string;
-}
+};
 
 const benefits = [
   "You will receive your Cell within 1 month in EU and US, and within 2-3 months in all other countries",
   "Guaranteed delivery or money back",
-  "2 year warranty"
-]
+  "2 year warranty",
+];
 
 const Component: React.FC<Props> = ({ className }: Props) => {
-
-  const classes = ['BenefitList']
+  const classes = ["BenefitList"];
   if (className) classes.push(className);
 
-  return (
-    <CheckedList items={benefits} />
-  )
-}
+  return <CheckedList items={benefits} />;
+};
 
-Component.displayName = 'BenefitList'
+Component.displayName = "BenefitList";
 
-export default Component
+export default Component;

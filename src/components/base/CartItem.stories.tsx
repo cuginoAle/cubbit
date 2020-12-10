@@ -1,19 +1,24 @@
 import React from "react";
 import CartItemComponent, { Props as ItemProps } from "./CartItem";
-import { Story } from '@storybook/react/types-6-0';
-import productPic from 'assets/cell.png';
-import { select } from '@storybook/addon-knobs';
+import { Story } from "@storybook/react/types-6-0";
+import productPic from "assets/cell.png";
 
 export default {
-  title: "/Cart Item",
+  title: "/Base/Cart Item",
   component: CartItemComponent,
   argTypes: {
-    onChange: { action: 'Quantity changed' }
-  }
+    onChange: { action: "Quantity changed" },
+    mode: {
+      control: {
+        type: "radio",
+        options: ["default", "compact"],
+      },
+      defaultValue: "default",
+    },
+  },
 };
 
 export const CartItem: Story = (args) => {
-
   const item: ItemProps = {
     item: {
       name: "Cool item",
@@ -24,10 +29,8 @@ export const CartItem: Story = (args) => {
       picUrl: productPic,
       currency: "€",
     },
-    mode: select('Mode', ['default', 'compact'], 'default'),
-    onChange: args.onChange
-  }
-  return (
-    <CartItemComponent {...item} />
-  );
+    mode: args.mode,
+    onChange: args.onChange,
+  };
+  return <CartItemComponent {...item} />;
 };

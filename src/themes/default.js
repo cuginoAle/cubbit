@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 const palette = {
   primary: "#009EFF",
-  white: "#fff",
+  white: "#FFFFFF",
   accent: "#EA243C",
   grey: {
     darker: "#161616",

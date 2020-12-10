@@ -7,9 +7,8 @@ const Wrapper = styled.ul`
   justify-content: space-evenly;
 `;
 
-export type Props = {
+type Props = {
   className?: string;
-  children?: React.ReactNode;
   steps?: Array<StepInterface>;
 };
 

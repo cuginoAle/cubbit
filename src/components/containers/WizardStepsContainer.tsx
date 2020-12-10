@@ -1,14 +1,12 @@
 import React from "react";
-import WizardSteps, {
-  Props as WizardProps,
-} from "components/widgets/WizardSteps";
+import WizardSteps from "components/widgets/WizardSteps";
 
 type Props = {
   pathname: string;
 };
 
 const Component: React.FC<Props> = ({ pathname }: Props) => {
-  const options: WizardProps = {
+  const options = {
     steps: [
       {
         label: "checkout",

@@ -4,9 +4,8 @@ import Section from "components/base/Section";
 import { ReactComponent as Visa } from "assets/svgs/visa.svg";
 import { ReactComponent as Maestro } from "assets/svgs/maestro.svg";
 import { ReactComponent as Mastercard } from "assets/svgs/mastercard.svg";
-import FormFieldsWrapper from 'components/base/FormFieldsWrapper';
-import PymentDetailsFields from 'components/widgets/CheckoutFormFieldsets/PaymentDetails';
-
+import FormFieldsWrapper from "components/base/FormFieldsWrapper";
+import PymentDetailsFields from "components/widgets/CheckoutFormFieldsets/PaymentDetails";
 
 const Wrapper = styled.div`
   .header {

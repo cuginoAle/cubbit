@@ -7,7 +7,7 @@ import ThankYouPageContainer from "components/Pages/ThankYouPageContainer";
 
 const Wrapper = styled.div`
   color: ${({ theme }) => theme.textBody.primary};
-  height: 1px;
+  height: 1px; // this is to fix the min-height: https://stackoverflow.com/questions/8468066/child-inside-parent-with-min-height-100-not-inheriting-height
   min-height: 100%;
 `;
 

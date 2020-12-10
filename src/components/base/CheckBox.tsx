@@ -30,6 +30,10 @@ const Wrapper = styled.label`
 
     font-size: 1.6rem;
     font-weight: 700;
+
+    ${CheckBox} {
+      flex-shrink: 0;
+    }
   }
 
   .fieldLabel {

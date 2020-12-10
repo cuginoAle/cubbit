@@ -1,21 +1,22 @@
 import React from "react";
 import ButtonComponent from "./Button";
-import { Story } from '@storybook/react/types-6-0';
-import { boolean } from "@storybook/addon-knobs";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
-  title: "/Button",
+  title: "/Base/Button",
   component: ButtonComponent,
   argTypes: {
-    onClick: { action: 'Click' }
-  }
+    onClick: { action: "Click" },
+    primary: {
+      defaultValue: true,
+    },
+  },
 };
 
 export const Button: Story = (args) => {
-  const isPrimary: boolean = boolean("Primary", true);
   return (
-    <ButtonComponent {...{ primary: isPrimary }} {...args}>
-      { isPrimary ? "Primary" : "Secondary"}
-    </ButtonComponent >
+    <ButtonComponent {...args}>
+      {args.primary ? "Primary" : "Secondary"}
+    </ButtonComponent>
   );
 };

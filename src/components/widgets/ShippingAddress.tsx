@@ -6,7 +6,7 @@ import ShippinAddressFields from "components/widgets/CheckoutFormFieldsets/Shipp
 
 const Wrapper = styled.div``;
 
-export type Props = {
+type Props = {
   className?: string;
 };
 

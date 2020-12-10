@@ -1,26 +1,19 @@
 import React from "react";
-import SectionComponent, { Props as SectionProps } from "./Section";
-import { Story } from '@storybook/react/types-6-0';
-import { text, boolean } from "@storybook/addon-knobs";
+import SectionComponent from "./Section";
+import { Story } from "@storybook/react/types-6-0";
 
 export default {
-  title: "/Section",
+  title: "/Base/Section",
   component: SectionComponent,
+  argTypes: {
+    title: { control: "text", defaultValue: "Section Title" },
+    subTitle: { control: "text", defaultValue: "Sub title" },
+    noBorder: { control: "boolean", defaultValue: false },
+  },
 };
 
-export const Section: Story<SectionProps> = () => {
-  const title = text("title", "New section");
-  const subTitle = text("sub title", "This is kinda cool");
-  const showBorder = boolean("Show border", true);
+export const Section: Story = (args) => {
   return (
-    <SectionComponent
-      {...{
-        title,
-        subTitle,
-        showBorder
-      }}
-    >
-      Some content
-    </SectionComponent>
-  )
+    <SectionComponent {...args}>Add some content here...</SectionComponent>
+  );
 };

@@ -3,7 +3,7 @@ import InputFieldComponent from "./InputField";
 import { Story } from "@storybook/react/types-6-0";
 
 export default {
-  title: "/Input Field",
+  title: "/Base/Input Field",
   component: InputFieldComponent,
   argTypes: {
     onChange: { action: "Change" },

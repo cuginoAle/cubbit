@@ -1,27 +1,42 @@
-import React from 'react';
-import { Story } from '@storybook/react/types-6-0';
-import { object } from '@storybook/addon-knobs';
-import WizardStepsComponent, { Props as WizardProps } from 'components/widgets/WizardSteps';
+import React from "react";
+import { Story } from "@storybook/react/types-6-0";
+import WizardStepsComponent from "components/widgets/WizardSteps";
+
+const defaultSteps = [
+  {
+    label: "checkout",
+    active: true,
+  },
+  {
+    label: "confirmation",
+    active: false,
+  },
+  {
+    label: "last step",
+    active: false,
+  },
+];
 
 export default {
-  title: '/Wizard Steps',
+  title: "/Widgets/Wizard Steps",
+  argTypes: {
+    steps: {
+      control: {
+        type: "text",
+      },
+      defaultValue: JSON.stringify(defaultSteps),
+    },
+  },
 };
 
-export const WizardSteps: Story = () => {
+export const WizardSteps: Story = (args) => {
+  let steps = [];
 
-  const options: WizardProps = {
-    steps: [
-      object("step_1", {
-        label: "checkout",
-        active: true
-      }),
-      object("step_2", {
-        label: "confirmation",
-        active: false
-      })
-    ]
+  try {
+    steps = JSON.parse(args.steps);
+  } catch (error) {
+    steps = defaultSteps;
   }
-  return (
-    <WizardStepsComponent {...options} />
-  )
-}
+
+  return <WizardStepsComponent steps={steps} />;
+};

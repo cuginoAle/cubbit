@@ -15,11 +15,8 @@ import BillingInfo from "components/widgets/BillingInfo";
 import PaymentMethods from "components/widgets/PaymentMethods";
 import TermsAndConditions from "components/widgets/TermAndConsitions";
 import Button from "components/base/Button";
-
 import { RouteComponentProps } from "react-router-dom";
-
 import { useForm, FormProvider } from "react-hook-form";
-import { RouteProps } from "react-router-dom";
 
 const Wrapper = styled.div`
   min-height: 100%;

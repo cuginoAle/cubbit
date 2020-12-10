@@ -6,7 +6,7 @@ import ContentInfoFields from "components/widgets/CheckoutFormFieldsets/ContactI
 
 const Wrapper = styled.div``;
 
-export type Props = {
+type Props = {
   className?: string;
 };
 
